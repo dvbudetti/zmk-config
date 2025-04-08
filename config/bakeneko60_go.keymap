@@ -10,6 +10,36 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+    macros {
+        m0: m0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(H))>;
+            label = "M0";
+        };
+
+        m1: m1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RA(ENTER)>;
+            label = "M1";
+        };
+
+        m2: m2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(PAGE_UP)>;
+            label = "M2";
+        };
+
+        m3: m3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(PAGE_DOWN)>;
+            label = "M3";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -41,11 +71,11 @@
             // ------------------------------------------------------------------------------------------------
 
             bindings = <
-&kp GRAVE        &kp F1        &kp F2            &kp F3        &kp F4           &kp F5           &kp F6               &kp F7          &kp F8          &kp F9           &kp F10          &kp F11  &kp F12             &kp DEL  &none
-&kp K_CMENU      &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &kp K_MUTE       &trans           &kp C_AL_CALCULATOR  &kp PG_UP       &kp UP_ARROW    &kp PAGE_DOWN    &kp INS          &trans   &trans                       &bootloader
-&trans           &kp CAPSLOCK  &kp C_VOL_DN      &kp C_VOL_UP  &rgb_ug RGB_BRD  &trans           &kp HOME             &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans           &kp DEL                               &trans
-&trans                         &trans            &trans        &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &trans               &kp END         &trans          &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans   &trans                       &tog 1
-&rgb_ug RGB_TOG  &trans                          &trans                                          &trans                                                                &trans           &trans   &kp K_CONTEXT_MENU           &trans
+&kp GRAVE        &kp F1        &kp F2            &kp F3        &kp F4      &kp F5  &kp F6               &kp F7          &kp F8          &kp F9           &kp F10          &kp F11  &kp F12             &kp DEL  &none
+&kp K_CMENU      &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &kp K_MUTE  &trans  &kp C_AL_CALCULATOR  &kp PG_UP       &kp UP_ARROW    &kp PAGE_DOWN    &kp INS          &trans   &trans                       &bootloader
+&trans           &kp CAPSLOCK  &kp C_VOL_DN      &kp C_VOL_UP  &m0         &trans  &kp HOME             &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans           &kp DEL                               &trans
+&trans                         &m2               &m3           &m1         &trans  &trans               &kp END         &trans          &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans   &trans                       &tog 1
+&rgb_ug RGB_TOG  &trans                          &trans                            &trans                                                                &trans           &trans   &kp K_CONTEXT_MENU           &trans
             >;
         };
 
